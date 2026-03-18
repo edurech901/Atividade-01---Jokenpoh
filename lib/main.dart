@@ -1,4 +1,4 @@
-import 'package:dev_mobile_flutter/pages/home_page.dart';
+import 'package:dev_mobile_flutter/pages/second_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomePage(),
+      home: SecondPage(),
     );
   }
 }
