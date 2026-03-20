@@ -1,6 +1,6 @@
 import 'package:dev_mobile_flutter/components/emoji_circle.dart';
+import 'package:dev_mobile_flutter/pages/second_page.dart';
 import 'package:flutter/material.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +10,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  void fazerEscolha(String escolha) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SecondPage(escolha: escolha),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +28,11 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xFFFF1F1F),
         foregroundColor: Colors.white,
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(
+            const Column(
               children: [
                 EmojiCircle(emoji: '', buttonSize: 140),
                 SizedBox(height: 16),
@@ -35,12 +45,27 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                EmojiCircle(emoji: '👊', buttonSize: 100),
-                EmojiCircle(emoji: '🖐️', buttonSize: 100),
-                EmojiCircle(emoji: '✌️', buttonSize: 100),
+                GestureDetector(
+                  onTap: () {
+                    fazerEscolha('👊');
+                  },
+                  child: const EmojiCircle(emoji: '👊', buttonSize: 100),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    fazerEscolha('🖐️');
+                  },
+                  child: const EmojiCircle(emoji: '🖐️', buttonSize: 100),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    fazerEscolha('✌️');
+                  },
+                  child: const EmojiCircle(emoji: '✌️', buttonSize: 100),
+                ),
               ],
             ),
-            SizedBox(height: 140),
+            const SizedBox(height: 140),
           ],
         ),
       ),
